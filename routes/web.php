@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes  nnb
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -19,7 +19,11 @@ Route::get('/', function(){
 Route::get('/hello', 'HelloController@index');
 Route::get('/hello/service', 'HelloController@service');
 Route::get('/hello/message', 'HelloController@message');
+
 Route::get('/hello/contact', 'HelloController@contact');
+Route::post('/contact/confirm', 'HelloController@confirm');
+Route::post('hello/contact/thanks', 'HelloController@send');
+
 Route::get('/hello/terms', 'HelloController@terms');
 Route::get('/hello/restaurant', 'HelloController@restaurant');
 

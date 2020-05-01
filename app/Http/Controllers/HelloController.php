@@ -28,6 +28,37 @@ class HelloController extends Controller
         return view('hello.contact');
     }
 
+    public function confirm(Reqest $request)
+    {
+       $validate_rule = [
+           'email'=>'required',
+           'title'=>'required',
+           'text'=>'required',
+       ];
+       $this->validate($request, $validate_rule);
+         //フォームから受け取ったすべてのinputの値を取得
+         $inputs = $request->all();
+        return view('hello.confirm', ['inputs'=>$inputs]);
+    }
+
+    public function send(Request $request)
+    {
+        $request->validate([
+            'email'=>'required',
+            'title'=>'required',
+            'text'=>'required'
+        ]);
+        $action = $request->input('action');
+
+        $inputs = $request->except('action');
+        if($action !== 'submit') {
+            return redirect('hello.contact')
+            ->withinput($inputs);
+        } else {
+            return view(('hello.thanks'));
+        }
+    }
+
     public function terms(Request $request)
     {
         return view('hello.terms');
