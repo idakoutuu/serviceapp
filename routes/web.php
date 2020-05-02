@@ -12,23 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return view('welcome');
+Route::group(['as' => 'app.'], function(){
+    Route::get('/', 'AppController@index')->name('index');
+    Route::get('service', 'AppController@service')->name('service');
+    Route::get('message', 'AppController@message')->name('message');
+    
+    Route::get('contact', 'AppController@contact')->name('contact');
+    Route::post('contact/confirm', 'AppController@confirm')->name('confirm');
+    Route::post('contact/thanks', 'AppController@send')->name('thanks');
+    
+    Route::get('terms', 'AppController@terms')->name('terms');
+    Route::get('restaurant', 'AppController@restaurant')->name('restaurant');
 });
-
-Route::get('/hello', 'HelloController@index');
-Route::get('/hello/service', 'HelloController@service');
-Route::get('/hello/message', 'HelloController@message');
-
-Route::get('/hello/contact', 'HelloController@contact');
-Route::post('/contact/confirm', 'HelloController@confirm');
-Route::post('hello/contact/thanks', 'HelloController@send');
-
-Route::get('/hello/terms', 'HelloController@terms');
-Route::get('/hello/restaurant', 'HelloController@restaurant');
-
-Route::get('/user/myPage', 'UsersController@myPage');
-Route::get('/user/anyPage', 'UsersController@anyPage');
+Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
+    Route::get('mypage', 'UsersController@myPage')->name('mypage');
+    Route::get('anypage', 'UsersController@anyPage')->name('anypage');
+});
 
 
 
@@ -36,4 +35,4 @@ Route::get('/user/anyPage', 'UsersController@anyPage');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');

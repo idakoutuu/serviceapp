@@ -1,14 +1,8 @@
 @extends('layouts.helloapp')
 
 @section('content')
-    <form action="/hello/contact/thanks" method="post">
+<form action="{{ route('app.thanks') }}" method="post">
         @csrf
-        <div class="col-md-6 offset-md-3 form-group col-form-label">
-        <label>メールアドレス</label>
-        {{$inputs['email']}}
-        <input type="hidden" name="email" value="{{$inputs['email']}}" class="form-control">
-        </div>
-
         <div class="col-md-6 offset-md-3 form-group col-form-label">
         <label>件名</label>
         {{$inputs['title']}}
