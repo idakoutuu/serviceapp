@@ -53,7 +53,7 @@
                         <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">新規登録</a>
+                            <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
