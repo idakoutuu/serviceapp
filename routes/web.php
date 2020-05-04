@@ -34,5 +34,5 @@ Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
 
 
 Auth::routes();
-
+Route::post('auth/register', 'Auth\RegisterController@verrification');
 Route::get('home', 'HomeController@index')->name('home');
