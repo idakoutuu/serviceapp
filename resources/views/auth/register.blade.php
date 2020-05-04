@@ -327,7 +327,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="hobby" class="col-md-4 col-form-label text-md-right">{{ __('趣味') }}</label>
+                            <label for="hobby" name="hobby" class="col-md-4 col-form-label text-md-right">{{ __('趣味') }}</label>
 
                             <div class="col-md-6">
                                 スポーツ観戦<input id="hobby" type="checkbox">
