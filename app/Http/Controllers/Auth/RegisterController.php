@@ -82,6 +82,7 @@ class RegisterController extends Controller
     public function verrification(Request $request)
     {
         $this->validator($request->all())->validate();
-        return view('auth.verrification');
+        $inputs = $request->all();
+        return view('auth.verrification', ['inputs' => $inputs]);
     }
 }
