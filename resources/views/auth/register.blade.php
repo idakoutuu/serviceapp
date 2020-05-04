@@ -253,7 +253,7 @@
                             <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
 
                             <div class="col-md-6">
-                                <input id="picture" type="file" class="@error('picture') is-invalid @enderror" name="password">
+                                <input id="picture" type="file" class="@error('picture') is-invalid @enderror" name="picture">
 
                                 @error('プロhィール写真')
                                     <span class="invalid-feedback" role="alert">
