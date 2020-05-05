@@ -1,4 +1,4 @@
-@extends('layouts.helloapp')
+@extends('layouts.topapp')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
                 }
 
              .jumbotron {
-                background:url(meat.jpg) center no-repeat; background-size: cover;
+                background:url(img/meat.jpg) center no-repeat; background-size: cover;
                  }
 
             .main-image {
@@ -90,7 +90,7 @@
     @section('content')
         <div class="jumbotron">
             <div class="container">
-            <img src="{{ asset('img/meat.jpg') }}" alt="肉" width="1100px" height="400px">
+                <!--<img src="{{ asset('img/meat.jpg') }}" alt="肉" width="1100px" height="400px">-->
             </div>
          </div>
          <div class="description row">

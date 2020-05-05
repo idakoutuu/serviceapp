@@ -4,7 +4,7 @@
         <title>@yield('title')</title>
         <style>
              .jumbotron {
-                 background:url(main.jpg) center no-repeat; background-size: cover;
+                 background:url({{ asset('img/puzzle.png') }}) center no-repeat; background-size: cover;
                  }
                  
              .container h1 {
