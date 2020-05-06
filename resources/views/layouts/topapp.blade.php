@@ -73,22 +73,22 @@
        <footer class="bg-secondary">
             <ul class="navbar-nav mr-auto text-light">
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello">トップ</a>
+                <a class="nav-link" href="{{ route('app.index') }}">トップ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello/service">当サービスについて</a>
+                <a class="nav-link" href="{{ route('app.service') }}">当サービスについて</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello/message">利用者の声</a>
+                <a class="nav-link" href="{{ route('app.message') }}">利用者の声</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">ログイン</a>
+                <a class="nav-link" href="{{ route('login') }}}">ログイン</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">新規登録</a>
+                <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello/contact">お問い合わせ</a>
+                <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
                 </li>
             </ul>
             <p>Copyright ©　●●●</p>
