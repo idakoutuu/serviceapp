@@ -6,9 +6,15 @@
              .jumbotron {
                  background:url({{ asset('img/night.jpg') }}) center no-repeat; background-size: cover;
                  }
+
+             .top-title {
+                 height: 600px;
+             }
                  
-             .container h1 {
+             .service-name {
                  text-align: center;
+                 font-size: 3.5rem; 
+                 color: #DDDDDD		;
              }
 
              footer ul {
@@ -26,10 +32,10 @@
         </style>
     </head>
     <body>
-        <header class="title pt-5">
-            <div class="jumbotron">
+        <header class="title">
+            <div class="jumbotron top-title">
                 <div class="container">
-                     <h1>@yield('title')</h1>
+                    <h1 class="service-name">マッチングサービス トップページ</h1>
                 </div>
             </div>
             <nav class="navbar navbar-expand-sm  navbar-light bg-light">
@@ -69,7 +75,7 @@
          <div class="content">
             @yield('content')
          </div>
-       
+
        <footer class="bg-secondary">
             <ul class="navbar-nav mr-auto text-light">
                 <li class="nav-item">

@@ -14,10 +14,6 @@
                 border-top: 1px #000000 dashed;
                 }
 
-             .jumbotron {
-                background:url(img/meat.jpg) center no-repeat; background-size: cover;
-                 }
-
             .main-image {
                 text-align: center; 
             }
@@ -29,6 +25,10 @@
 
             .main {
                 margin-bottom: 100px;
+            }
+
+            .image-pic {
+                background-size: cover;
             }
 
             .main-content {
@@ -88,13 +88,12 @@
 </head>
 <body>
     @section('content')
-        <div class="jumbotron">
-            <div class="container">
-                <!--<img src="{{ asset('img/meat.jpg') }}" alt="肉" width="1100px" height="400px">-->
-            </div>
-         </div>
          <div class="description row">
-              <p class="service-description col-8 offset-2">当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです</p>
+             <p class="service-description col-8 offset-2 pt-5">当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです当webサイトはマッチングサービスです</p>
+        </div>
+        <hr>
+        <div class="image-pic">
+             <img src="{{ asset('img/meat.jpg') }}" alt="" width="1450px" height="600px">
         </div>
         <hr width=”500px”>
         <div class="container">
@@ -138,7 +137,6 @@
             </div>
         </div>
         <hr>
-        <div>
             <div class="row guide">
                 <div class="col-sm-8 store">
                     <h2>参考店舗一覧</h2>
