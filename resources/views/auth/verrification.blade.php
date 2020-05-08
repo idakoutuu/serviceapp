@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <form action="{{ route('thanks') }}" method="post">
+                    <form action="{{ route('register') }}" method="post">
                         @csrf
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>名前</label>
