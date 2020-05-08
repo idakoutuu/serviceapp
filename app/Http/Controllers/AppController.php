@@ -33,12 +33,12 @@ class AppController extends Controller
     {
          //フォームから受け取ったすべてのinputの値を取得
          $inputs = $request->all();
-         return view('app.confirm', ['inputs'=>$inputs]);
+         return view('app.confirm', ['inputs' => $inputs]);
     }
     public function send(ContactRequest $request)
     {  
          $contact = new Contact;
-         $form = $request->all();
+         $form    = $request->all();
          unset($form['_token']);
          $contact->fill($form)->save();
          return view(('app.thanks'));
