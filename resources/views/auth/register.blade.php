@@ -250,10 +250,19 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
 
                             <div class="col-md-6">
-                                <input id="picture" type="file" class="@error('picture') is-invalid @enderror" name="picture">
+                                <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
 
                                 @error('プロhィール写真')
                                     <span class="invalid-feedback" role="alert">
