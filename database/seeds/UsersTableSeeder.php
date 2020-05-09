@@ -15,11 +15,11 @@ class UsersTableSeeder extends Seeder
         $param = [
             'name' => 'shin',
             'email' => 'idakoutuu0205@gmail.com',
-            'password' => 'shin19940205',
-            'gender' => 'man',
+            'password' => Hash::make('shin19940205'),
+            'gender' => 'male',
             'birth' => 19940205,
-            'picture' => 'logo.png',
-            'address_id' => 11,
+            'photo' => 'logo.png',
+            'prefecture_id' => 11,
             'hobby_id' => 1,
             'profession_id' => 3
         ];

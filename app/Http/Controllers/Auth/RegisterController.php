@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Http\Requests\PhotoRequest;
+use Illuminate\Support\Facades\Storage;
 
 
 class RegisterController extends Controller
@@ -54,10 +56,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'gender' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8',],
+            'gender' => ['required'],
             'birth' => ['required', 'date'],
-            'picture' => ['required', 'string'],
+            'photo' => ['string'],
         ]);
     }
 
@@ -75,14 +77,29 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'gender' => $data['gender'],
             'birth' => $data['birth'],
-            'picture' =>$data['picture'],
+            'photo' =>$data['photo'],
         ]);
     }
 
-    public function verrification(Request $request)
+    public function verification(Request $request)
     {
         $this->validator($request->all())->validate();
         $inputs = $request->all();
-        return view('auth.verrification', ['inputs' => $inputs]);
+        return view('auth.verification', ['inputs' => $inputs]);
+    }
+
+    public function store(PhotoRequest $request)
+    {
+        $request->photo->storeAs('public/profile_images', Auth::id().'jpg');
+        return redirect('home')->with('success'.'新しいプロフィールを登録しました');
+    }
+
+    public function index()
+    {
+        $is_image = false;
+        if (Storage::disk('local')->exists('public\profile_images' . Auth::id() . 'jpg')) {
+            $is_image = true;
+        }
+        return view('auth.verification', ['is_image' => $is_image]);
     }
 }

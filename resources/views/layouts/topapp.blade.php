@@ -13,7 +13,7 @@
                  
              .service-name {
                  text-align: center;
-                 font-size: 3.5rem; 
+                 font-size: 2.5rem; 
                  color: #DDDDDD		;
              }
 
@@ -35,7 +35,8 @@
         <header class="title">
             <div class="jumbotron top-title">
                 <div class="container">
-                    <h1 class="service-name">マッチングサービス トップページ</h1>
+                    <img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="150px" height="150px">
+                    <h1 class="service-name">トップページ</h1>
                 </div>
             </div>
             <nav class="navbar navbar-expand-sm  navbar-light bg-light">

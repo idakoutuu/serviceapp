@@ -34,6 +34,6 @@ Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
 
 
 Auth::routes();
-Route::post('register/verrification', 'Auth\RegisterController@verrification')->name('verrification');//ここはrouter.phpのregistermethodとどちらが採用されるのか？
+Route::post('register/verification', 'Auth\RegisterController@verification')->name('verification');//ここはrouter.phpのregistermethodとどちらが採用されるのか？
 Route::post('register/thanks', 'Auth\RegisterController@register');
 Route::get('home', 'HomeController@index')->name('home');

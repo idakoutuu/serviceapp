@@ -8,8 +8,12 @@
                 <div class="card-header" style="text-align: center; font-size: 20px;">{{ __('新規登録') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('verrification') }}">
+                    <form method="POST" action="{{ route('verification') }}" enctype="multipart/form-data">
                         @csrf
+                
+                        @if (count($errors) > 0)
+                            <p style="color: red; text-align: center;">再入力してください</p>
+                        @endif
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('名前') }}</label>
@@ -57,8 +61,8 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
 
                             <div class="col-md-8">
-                                男<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="male">
-                                女<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="female">
+                                男<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="1">
+                                女<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="2">
                             </div>
                         </div>
 
@@ -250,24 +254,26 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
+                            
+                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
 
                             <div class="col-md-6">
-                                <input id="picture" type="file" class="@error('picture') is-invalid @enderror" name="picture">
+                                <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
 
-                                @error('プロhィール写真')
+                                @error('プロフィール写真')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
+                            <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
 
                             <div class="col-md-6">
-                                <select name="address" id="address" required autocomplete="address">
+                                <select name="prefecture" id="prefecture" required autocomplete="prefecture">
                                     <option value="">選択してください</option>
                                     <option value="北海道">北海道</option>
                                     <option value="青森県">青森県</option>

@@ -20,10 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('gender');
             $table->date('birth');
-            $table->text('picture');
-            $table->integer('address_id');
+            $table->text('photo');
+            $table->integer('prefecture_id');
             $table->integer('hobby_id');
-            $table->integer('proffesion_id');
+            $table->integer('profession_id');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }
