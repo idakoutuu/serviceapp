@@ -28,7 +28,7 @@
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>性別</label>
                         {{$inputs['gender']}}
-                        <input type="hidden" name="email" value="{{$inputs['gender']}}" class="form-control">
+                        <input type="hidden" name="gender" value="{{$inputs['gender']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
@@ -51,7 +51,7 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>お住まい</label>
-                        {{$inputs['address']}}
+                        {{$inputs['profession']}}
                         <input type="hidden" name="address" value="{{$inputs['address']}}" class="form-control">
                         </div>
 
