@@ -10,7 +10,11 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('verification') }}" enctype="multipart/form-data">
                         @csrf
-
+                
+                        @if (count($errors) > 0)
+                            <p style="color: red; text-align: center;">再入力してください</p>
+                        @endif
+                        
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('名前') }}</label>
 
@@ -24,6 +28,10 @@
                                 @enderror
                             </div>
                         </div>
+
+                        @if (count($errors) > 0)
+                        <p style="color: red; text-align: center;">再入力してください</p>
+                    　　 @endif
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
@@ -39,6 +47,10 @@
                             </div>
                         </div>
 
+                        @if (count($errors) > 0)
+                        <p style="color: red; text-align: center;">再入力してください</p>
+                    　   @endif
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
@@ -53,6 +65,10 @@
                             </div>
                         </div>
 
+                        @if (count($errors) > 0)
+                        <p style="color: red; text-align: center;">再入力してください</p>
+                  　　  @endif
+
                         <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
 
@@ -61,6 +77,10 @@
                                 女<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="female">
                             </div>
                         </div>
+
+                        @if (count($errors) > 0)
+                        <p style="color: red; text-align: center;">再入力してください</p>
+                   　　 @endif
 
                         <div class="form-group row">
                             <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('生年月日') }}</label>
@@ -250,15 +270,7 @@
                         </div>
 
                         <div class="form-group row">
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                                </ul>
-                            </div>
-                            @endif
+                            
                             <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
 
                             <div class="col-md-6">
