@@ -264,10 +264,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
+                            <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
 
                             <div class="col-md-6">
-                                <select name="address" id="address" required autocomplete="address">
+                                <select name="prefecture" id="prefecture" required autocomplete="prefecture">
                                     <option value="">選択してください</option>
                                     <option value="北海道">北海道</option>
                                     <option value="青森県">青森県</option>
