@@ -81,11 +81,11 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function verrification(Request $request)
+    public function verification(Request $request)
     {
         $this->validator($request->all())->validate();
         $inputs = $request->all();
-        return view('auth.verrification', ['inputs' => $inputs]);
+        return view('auth.verification', ['inputs' => $inputs]);
     }
 
     public function store(PhotoRequest $request)
