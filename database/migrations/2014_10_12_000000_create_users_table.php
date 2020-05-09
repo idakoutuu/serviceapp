@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('gender');
             $table->date('birth');
-            $table->text('picture');
+            $table->text('photo');
             $table->integer('prefecture_id');
             $table->integer('hobby_id');
             $table->integer('profession_id');

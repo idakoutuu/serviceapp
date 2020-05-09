@@ -85,4 +85,9 @@ class RegisterController extends Controller
         $inputs = $request->all();
         return view('auth.verrification', ['inputs' => $inputs]);
     }
+
+    public function registered(Request $request, $user)
+    {
+        
+    }
 }
