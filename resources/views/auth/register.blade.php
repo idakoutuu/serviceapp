@@ -61,8 +61,8 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
 
                             <div class="col-md-8">
-                                男<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="male">
-                                女<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="female">
+                                男<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="1">
+                                女<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="2">
                             </div>
                         </div>
 
