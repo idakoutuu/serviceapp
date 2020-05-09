@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8',],
             'gender' => ['required', 'string'],
             'birth' => ['required', 'date'],
-            'picture' => ['required', 'string'],
+            'photo' => ['', 'string'],
         ]);
     }
 
@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'gender' => $data['gender'],
             'birth' => $data['birth'],
-            'picture' =>$data['picture'],
+            'photo' =>$data['photo'],
         ]);
     }
 
