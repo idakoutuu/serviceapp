@@ -14,7 +14,7 @@
                         @if (count($errors) > 0)
                             <p style="color: red; text-align: center;">再入力してください</p>
                         @endif
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('名前') }}</label>
 
@@ -28,10 +28,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        @if (count($errors) > 0)
-                        <p style="color: red; text-align: center;">再入力してください</p>
-                    　　 @endif
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
@@ -47,10 +43,6 @@
                             </div>
                         </div>
 
-                        @if (count($errors) > 0)
-                        <p style="color: red; text-align: center;">再入力してください</p>
-                    　   @endif
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
@@ -65,10 +57,6 @@
                             </div>
                         </div>
 
-                        @if (count($errors) > 0)
-                        <p style="color: red; text-align: center;">再入力してください</p>
-                  　　  @endif
-
                         <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
 
@@ -77,10 +65,6 @@
                                 女<input class="col-md-4" id="gender" type="radio" class="form-control" name="sex" required autocomplete="gender" value="female">
                             </div>
                         </div>
-
-                        @if (count($errors) > 0)
-                        <p style="color: red; text-align: center;">再入力してください</p>
-                   　　 @endif
 
                         <div class="form-group row">
                             <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('生年月日') }}</label>
@@ -276,7 +260,7 @@
                             <div class="col-md-6">
                                 <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
 
-                                @error('プロhィール写真')
+                                @error('プロフィール写真')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
