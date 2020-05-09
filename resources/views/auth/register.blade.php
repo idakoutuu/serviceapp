@@ -8,7 +8,7 @@
                 <div class="card-header" style="text-align: center; font-size: 20px;">{{ __('新規登録') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('verrification') }}">
+                    <form method="POST" action="{{ route('verrification') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
