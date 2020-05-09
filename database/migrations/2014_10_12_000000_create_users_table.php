@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('prefecture_id');
             $table->integer('hobby_id');
             $table->integer('profession_id');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }
