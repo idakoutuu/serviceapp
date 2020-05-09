@@ -36,11 +36,9 @@ class AppController extends Controller
          $inputs = $request->all();
          return view('app.confirm', ['inputs'=>$inputs]);
     }
-    public function send(ContactRequest $request)
+    public function send(ContactRequest $request, Contact $contact)
     {  
-         $contact = new Contact;
          $form = $request->all();
-         unset($form['_token']);
          $contact->fill($form)->save();
          return view(('app.thanks'));
     }
