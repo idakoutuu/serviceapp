@@ -39,6 +39,12 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>プロフィール写真</label>
+                        @if ($is_image)
+                            <figure>
+                                <img src="/storage/profile_images/{{ Auth::id() }}.jpg" width="100px" height="100px">
+                                <figcaption>現在のプロフィール画像</figcaption>
+                            </figure>
+                        @endif
                         {{$inputs['']}}
                         <input type="hidden" name="picture" value="{{$inputs['picture']}}" class="form-control">
                         </div>
