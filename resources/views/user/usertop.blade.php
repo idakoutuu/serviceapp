@@ -6,6 +6,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section('title', 'マイページ')
+    <style>
+        hr {
+            width: 70%;
+            height: 1px;
+            border: none;
+            border-top: 1px #000000 dashed;
+            }
+
+        .main-image {
+            text-align: center; 
+        }
+        
+        .service-description {
+                font-size: 20px;
+                line-height: 50px;
+        }
+
+        .main {
+            margin-bottom: 100px;
+        }
+
+        .image-pic {
+            background-size: cover;
+        }
+
+        .main-content {
+            border-radius: 50%;
+            text-align: center;
+            background-color: #0099FF;
+            width: 250px;
+            height: 250px;
+            line-height: 200px;
+            align-items: center;
+            font-size: 10px;
+            color: white;
+        }
+
+        .drop-down {
+        }
+
+        .guide {
+        }
+
+        .store {
+            font-size: 30px;
+            text-align: center;
+            background-color: ;
+        }
+
+        .sub-image {
+            text-align :center;
+            font-size: 30px;
+            background-color: ;
+        }
+
+        .store-list {
+            list-style: none;
+        }
+
+        .customer {
+            text-align: center;
+            list-style: none;
+        }
+
+        .customer-voice {
+            list-style: none;
+            line-height: 40px;
+        }
+
+        .customer-image {
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .service-description {
+                font-size: 2rem;
+            }
+        }
+</style>
 </head>
 <body>
     @section('content')
