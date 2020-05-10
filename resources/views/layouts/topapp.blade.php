@@ -35,7 +35,7 @@
         <header class="title">
             <div class="jumbotron top-title">
                 <div class="container">
-                    <img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="150px" height="150px">
+                    <img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="50px" height="50px">
                     <h1 class="service-name">トップページ</h1>
                 </div>
             </div>

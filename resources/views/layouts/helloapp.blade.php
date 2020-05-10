@@ -29,7 +29,7 @@
         <header class="title pt-5">
             <div class="jumbotron">
                 <div class="container">
-                    <img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="150px" height="150px">
+                    <img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="50px" height="50px">
                      <h1>@yield('title')</h1>
                 </div>
             </div>
