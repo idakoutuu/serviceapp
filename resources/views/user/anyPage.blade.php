@@ -1,4 +1,4 @@
-@extends('layouts.helloapp')
+@extends('layouts.usersapp')
 
 <!DOCTYPE html>
 <html lang="en">

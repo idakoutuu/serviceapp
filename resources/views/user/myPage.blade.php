@@ -1,4 +1,4 @@
-@extends('layouts.userapp')
+@extends('layouts.usersapp')
 
 <!DOCTYPE html>
 <html lang="ja">
