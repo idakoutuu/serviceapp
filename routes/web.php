@@ -25,7 +25,7 @@ Route::group(['as' => 'app.'], function(){
     Route::get('restaurant', 'AppController@restaurant')->name('restaurant');
 });
 Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
-    Route::get('usertop', 'UsersController@usertop')->name('usertop');
+    Route::get('usertop', 'UsersController@usertop')->middleware('auth')->name('usertop');
     Route::get('mypage', 'UsersController@mypage')->name('mypage');
     Route::get('anypage', 'UsersController@anypage')->name('anypage');
 });
