@@ -57,7 +57,7 @@
                         <a class="nav-link" href="{{ route('app.message') }}">利用者の声</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('mypage') }}">マイページ</a>
+                        <a class="nav-link" href="#">マイページ</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
