@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function myPage(Request $request)
+    public function usertop(Request $request)
     {
-        return view('user.myPage');
+        return view('user.usertop');
     }
 
-    public function anyPage(Request $request)
+    public function mypage(Request $request)
     {
-        return view('user.anyPage');
+        return view('user.mypage');
+    }
+
+    public function anypage(Request $request)
+    {
+        return view('user.anypage');
     }
 }
