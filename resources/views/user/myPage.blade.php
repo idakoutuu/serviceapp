@@ -1,6 +1,5 @@
 @extends('layouts.usersapp')
 
-<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -9,5 +8,8 @@
 </head>
 <body>
     @section('title')
+    @section('content')
+        
+    @endsection
 </body>
 </html>
