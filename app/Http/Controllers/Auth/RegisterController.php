@@ -88,6 +88,13 @@ class RegisterController extends Controller
         return view('auth.verification', ['inputs' => $inputs]);
     }
 
+    protected function registered(Request $request, $user)
+    {
+        $request->validate([
+        'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+    }
+
     public function store(PhotoRequest $request)
     {
         $request->photo->storeAs('public/profile_images', Auth::id().'jpg');
