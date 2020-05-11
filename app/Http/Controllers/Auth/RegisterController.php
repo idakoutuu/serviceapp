@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests\PhotoRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class RegisterController extends Controller
@@ -93,20 +95,7 @@ class RegisterController extends Controller
         $request->validate([
         'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
-    }
-
-    public function store(PhotoRequest $request)
-    {
-        $request->photo->storeAs('public/profile_images', Auth::id().'jpg');
-        return redirect('home')->with('success'.'新しいプロフィールを登録しました');
-    }
-
-    public function index()
-    {
-        $is_image = false;
-        if (Storage::disk('local')->exists('public\profile_images' . Auth::id() . 'jpg')) {
-            $is_image = true;
-        }
-        return view('auth.verification', ['is_image' => $is_image]);
+        $request->photo->storeAS('public/profile_images', Auth::id(). 'jpg');
+        return redirect('auth.verification')->with('success', '');
     }
 }
