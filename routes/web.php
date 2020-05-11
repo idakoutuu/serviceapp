@@ -26,8 +26,8 @@ Route::group(['as' => 'app.'], function(){
 });
 Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
     Route::get('usertop', 'UsersController@usertop')->middleware('auth')->name('usertop');
-    Route::get('mypage', 'UsersController@mypage')->name('mypage');
-    Route::get('anypage', 'UsersController@anypage')->name('anypage');
+    Route::get('mypage', 'UsersController@mypage')->middleware('auth')->name('mypage');
+    Route::get('anypage', 'UsersController@anypage')->middleware('auth')->name('anypage');
 });
 
 
