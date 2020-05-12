@@ -60,7 +60,10 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8',],
             'gender' => ['required'],
-            'birth' => ['required', 'date'],
+            'birth' => ['date'],
+            'birth_year'  => ['required_with:birth_month,birth_day'],
+            'birth_month' => ['required_with:birth_year,birth_day'],
+            'birth_day'   => ['required_with:birth_year,birth_month'],
             'photo' => ['string'],
         ]);
     }
@@ -81,6 +84,19 @@ class RegisterController extends Controller
             'birth' => $data['birth'],
             'photo' =>$data['photo'],
         ]);
+    }
+
+    public function getValidatorInstance()
+    {
+        if ($this->input('birth_day') && $this->input('birth_month') && $this->input('birth_year'))
+        {
+            $birthDate = implode('-', $this->only(['birth_year', 'birth_month', 'birth_day']));
+            $this->merge([
+                'birth' => $birthDate,
+            ]);
+        }
+
+        return parent::getValidatorInstance();
     }
 
     public function verification(Request $request)

@@ -33,8 +33,10 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>生年月日</label>
-                        {{$inputs['birth']}}
-                        <input type="hidden" name="birth" value="{{$inputs['birth']}}" class="form-control">
+                        {{$inputs['birth_year']}} {{$inputs['birth_year']}} {{$inputs['birth_year']}}
+                        <input type="hidden" name="birth_year" value="{{$inputs['birth_year']}}" class="form-control">
+                        <input type="hidden" name="birth_month" value="{{$inputs['birth_month']}}" class="form-control">
+                        <input type="hidden" name="birth_day" value="{{$inputs['birth_day']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
