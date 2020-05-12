@@ -121,7 +121,7 @@
                             <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
 
                             <div class="col-md-6">
-                                <select name="prefecture" id="prefecture" required autocomplete="prefecture">
+                                <select name="prefecture_id" id="prefecture_id" required autocomplete="prefecture_id">
                                     <option value="">選択してください</option>
                                     <option value="北海道">北海道</option>
                                     <option value="青森県">青森県</option>
@@ -181,12 +181,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="hobby" name="hobby" class="col-md-4 col-form-label text-md-right">{{ __('趣味') }}</label>
+                            <label for="hobby_id" name="hobby_id" class="col-md-4 col-form-label text-md-right">{{ __('趣味') }}</label>
 
                             <div class="col-md-6">
-                                スポーツ観戦<input id="hobby" type="checkbox">
-                                読書<input id="hobby" type="checkbox">
-                                ペット<input id="hobby" type="checkbox">
+                                スポーツ観戦<input id="hobby_id" type="checkbox">
+                                読書<input id="hobby_id" type="checkbox">
+                                ペット<input id="hobby_id" type="checkbox">
                                 
                                 @error('趣味')
                                     <span class="invalid-feedback" role="alert">
@@ -197,10 +197,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="profession" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                            <label for="profession_id" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
 
                             <div class="col-md-6">
-                                <select name="profession" id="profession" required autocomplete="profession">
+                                <select name="profession_id" id="profession_id" required autocomplete="profession_id">
                             　      <option value="">選択してください</option>
                                     <option value="会社員">会社員</option>
                                     <option value="会社役員">会社役員</option>
