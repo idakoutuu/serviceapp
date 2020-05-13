@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->text('photo');
             $table->string('prefecture');
             $table->integer('hobby_id');
-            $table->integer('profession_id');
+            $table->string('profession');
             $table->string('remember_token')->nullable();
             $table->timestamps();
         });
