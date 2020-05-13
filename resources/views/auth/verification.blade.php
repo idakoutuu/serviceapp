@@ -41,11 +41,7 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>プロフィール写真</label>
-                        @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                        @endif
+                       
                         {{$inputs['']}}
                         <input type="hidden" name="picture" value="{{$inputs['picture']}}" class="form-control">
                         </div>
