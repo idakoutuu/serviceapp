@@ -14,6 +14,15 @@
                         @if (count($errors) > 0)
                             <p style="color: red; text-align: center;">再入力してください</p>
                         @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('名前') }}</label>
@@ -104,15 +113,6 @@
 
                             <div class="col-md-6">
                                 <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                    </ul>
-                                </div>
-                                @endif
                                 
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                             <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
 
                             <div class="col-md-6">
-                                <select name="prefecture_id" id="prefecture_id" required autocomplete="prefecture_id">
+                                <select name="prefecture" id="prefecture" required autocomplete="prefecture">
                                     <option value="">選択してください</option>
                                     <option value="北海道">北海道</option>
                                     <option value="青森県">青森県</option>

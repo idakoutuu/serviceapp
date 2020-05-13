@@ -86,19 +86,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function getValidatorInstance()
-    {
-        if ($this->input('birth_day') && $this->input('birth_month') && $this->input('birth_year'))
-        {
-            $birthDate = implode('-', $this->only(['birth_year', 'birth_month', 'birth_day']));
-            $this->merge([
-                'birth' => $birthDate,
-            ]);
-        }
-
-        return parent::getValidatorInstance();
-    }
-
     public function verification(Request $request)
     {
         $this->validator($request->all())->validate();

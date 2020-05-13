@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->date('birth');
             $table->text('photo');
-            $table->integer('prefecture_id');
+            $table->string('prefecture');
             $table->integer('hobby_id');
             $table->integer('profession_id');
             $table->string('remember_token')->nullable();

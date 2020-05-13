@@ -41,15 +41,14 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>プロフィール写真</label>
-                       
                         {{$inputs['']}}
                         <input type="hidden" name="picture" value="{{$inputs['picture']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>お住まい</label>
-                        {{$inputs['profession']}}
-                        <input type="hidden" name="address" value="{{$inputs['address']}}" class="form-control">
+                        {{$inputs['prefecture']}}
+                        <input type="hidden" name="prefecture" value="{{$inputs['prefecture']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
