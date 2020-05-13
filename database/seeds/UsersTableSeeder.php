@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'logo.png',
             'prefecture' => '東京都',
             'hobby_id' => 1,
-            'profession_id' => 3
+            'profession' => '会社員'
         ];
         User::insert($param);
     }

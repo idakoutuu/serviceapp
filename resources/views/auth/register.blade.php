@@ -197,10 +197,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="profession_id" class="col-md-4 col-form-label text-md-right">{{ __('職業　：') }}</label>
+                            <label for="profession" class="col-md-4 col-form-label text-md-right">{{ __('職業　：') }}</label>
 
                             <div class="col-md-6">
-                                <select name="profession_id" id="profession_id" required autocomplete="profession_id">
+                                <select name="profession" id="profession" required autocomplete="profession">
                             　      <option value="">選択してください</option>
                                     <option value="会社員">会社員</option>
                                     <option value="会社役員">会社役員</option>
