@@ -25,7 +25,7 @@
                         @endif
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('名前') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('名前　：') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス　：') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード　：') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別　　：') }}</label>
 
                             <div class="col-md-8">
                                 男<input class="col-md-4" id="gender" type="radio" class="form-control" name="gender" required autocomplete="gender" value="1">
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('生年月日') }}</label>
+                            <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('生年月日　：') }}</label>
 
                             <div class="col-md-8">
                                 <select name="birth_year" id="birth_year" required autocomplete="birth_year">
@@ -109,7 +109,7 @@
 
                         <div class="form-group row">
                             
-                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
+                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真　：') }}</label>
 
                             <div class="col-md-6">
                                 <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
@@ -118,7 +118,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
+                            <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい　：') }}</label>
 
                             <div class="col-md-6">
                                 <select name="prefecture" id="prefecture" required autocomplete="prefecture">
@@ -181,7 +181,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="hobby_id" name="hobby_id" class="col-md-4 col-form-label text-md-right">{{ __('趣味') }}</label>
+                            <label for="hobby_id" name="hobby_id" class="col-md-4 col-form-label text-md-right">{{ __('趣味　：') }}</label>
 
                             <div class="col-md-6">
                                 スポーツ観戦<input id="hobby_id" type="checkbox">
@@ -197,7 +197,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="profession_id" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                            <label for="profession_id" class="col-md-4 col-form-label text-md-right">{{ __('職業　：') }}</label>
 
                             <div class="col-md-6">
                                 <select name="profession_id" id="profession_id" required autocomplete="profession_id">
