@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->truncate();
         $param = [
             'name' => 'shin',
             'email' => 'idakoutuu0205@gmail.com',
@@ -20,7 +21,6 @@ class UsersTableSeeder extends Seeder
             'birth' => 19940205,
             'photo' => 'logo.png',
             'prefecture' => '東京都',
-            'hobby_id' => 1,
             'profession' => '会社員'
         ];
         User::insert($param);
