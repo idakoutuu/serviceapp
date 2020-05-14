@@ -14,10 +14,13 @@ class CreateUserHobbyTable extends Migration
     public function up()
     {
         Schema::create('user_hobby', function (Blueprint $table) {
-            $table->unsignedInteger('person_id');
-            $table->unsignedInteger('hobby_id');
-            $table->primary('person_id', 'hobby_id');
+            $table->integer('user_id');
+            $table->integer('hobby_id');
+            $table->primary('user_id', 'hobby_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('setNull');
+            $table->foreign('hobby_id')->references('id')->on('hobby')->onDelete('setNull');
         });
     }
 
