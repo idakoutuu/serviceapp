@@ -16,6 +16,19 @@ class PrefecturesTableSeeder extends Seeder
             'prefecture_name' => '北海道',
             'prefecture_name_kana' => 'ホッカイドウ'
         ];
+<<<<<<< HEAD
+=======
+
+        $param = [
+            'prefecture_name' => '青森県',
+            'prefecture_name_kana' => 'アオモリケン'
+        ];
+
+        $param = [
+            'prefecture_name' => '岩手県',
+            'prefecture_name_kana' => 'イワテケン'
+        ];
+>>>>>>> fix_0517
         Prefecture::insert($param);
     }
 }
