@@ -12,4 +12,9 @@ class Prefecture extends Model
         'person_id' => 'required',
         'prefecture' => 'required'
     );
+
+    public function user()
+    {
+        return $this->belongTo('App\user');
+    }
 }
