@@ -12,9 +12,9 @@ class HobbiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $param = [
-            'hobby' => 'ゴルフ'
+        $hobbies = [
+            'ゴルフ', '読書', 'ペット','スポーツ鑑賞'
         ];
-        Hobby::insert($param);
+        foreach ($hobbies as $hobby) App\Hobby::create(['hobby' => $hobby]);
     }
 }
