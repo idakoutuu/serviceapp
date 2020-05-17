@@ -56,12 +56,22 @@
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('app.message') }}">利用者の声</a>
                         </li>
+                        @guest
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                         </li>
+                        @endguest
+                        @auth
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.mypage') }}">マイページ</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.anypage') }}">ユーザー一覧</a>
+                        </li>
+                        @endauth
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
                         </li>
