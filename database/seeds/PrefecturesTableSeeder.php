@@ -13,7 +13,7 @@ class PrefecturesTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'person_id' => 2,
+            'user_id' => 2,
             'prefecture_name' => '東京都',
         ];
         Prefecture::insert($param);
