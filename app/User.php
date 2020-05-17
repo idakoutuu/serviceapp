@@ -43,4 +43,10 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Prefecture');
     }
+
+    public function hobbies()
+    {
+        return $this->belongsToMany('App\Hobby');
+    }
 }
+
