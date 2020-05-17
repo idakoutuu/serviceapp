@@ -12,7 +12,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PhotoRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-
+use App\Hobby;
+use App\Prefecture;
 
 
 class RegisterController extends Controller
@@ -86,7 +87,14 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function verification(Request $request)
+    public function showRegistrationForm(Hobby $hobby, Prefecture $prefecture)
+    {
+        $hobbies = $hobby->all();
+        $prefectures = $prefecture->all();
+        return view('auth.register', ['hobbies' => $hobbies, 'prefectures' => $prefectures]);
+    }
+
+    public function verification(Request $request, Hobby $hobby)
     {
         $this->validator($request->all())->validate();
         $inputs = $request->all();
