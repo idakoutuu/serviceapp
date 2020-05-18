@@ -9,12 +9,11 @@ class Prefecture extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'person_id' => 'required',
-        'prefecture' => 'required'
+        'prefecture_name' => 'required'
     );
 
     public function user()
     {
-        return $this->belongTo('App\user');
+        return $this->hasOne('App\user');
     }
 }
