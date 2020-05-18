@@ -15,6 +15,6 @@ class HobbiesTableSeeder extends Seeder
         $hobbies = [
             'ゴルフ', '読書', 'ペット','スポーツ鑑賞'
         ];
-        foreach ($hobbies as $hobby) App\Hobby::create(['hobby' => $hobby]);
+        foreach ($hobbies as $hobby) Hobby::create(['hobby' => $hobby]);
     }
 }
