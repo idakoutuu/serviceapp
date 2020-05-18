@@ -47,8 +47,8 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>お住まい:</label>
-                        {{$inputs['prefecture']}}
-                        <input type="hidden" name="prefecture" value="{{$inputs['prefecture']}}" class="form-control">
+                        {{$inputs['prefecture_id']}}
+                        <input type="hidden" name="prefecture_id" value="{{$inputs['prefecture_id']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
@@ -59,8 +59,8 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>職業:</label>
-                        {{$inputs['profession']}}
-                        <input type="hidden" name="profession" value="{{$inputs['profession']}}" class="form-control">
+                        {{$inputs['profession_id']}}
+                        <input type="hidden" name="profession_id" value="{{$inputs['profession_id']}}" class="form-control">
                         </div>
 
                         <button type="submit" name="action" value="back" class="form-control">
