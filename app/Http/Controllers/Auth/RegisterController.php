@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Hobby;
 use App\Prefecture;
+use App\Profession;
 
 
 class RegisterController extends Controller
@@ -87,11 +88,12 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function showRegistrationForm(Hobby $hobby, Prefecture $prefecture)
+    public function showRegistrationForm(Hobby $hobby, Prefecture $prefecture, Profession $profession)
     {
         $hobbies = $hobby->all();
         $prefectures = $prefecture->all();
-        return view('auth.register', ['hobbies' => $hobbies, 'prefectures' => $prefectures]);
+        $professions = $profession->all();
+        return view('auth.register', ['hobbies' => $hobbies, 'prefectures' => $prefectures, 'professions' => $professions]);
     }
 
     public function verification(Request $request, Hobby $hobby)
