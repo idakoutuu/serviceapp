@@ -118,12 +118,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="prefecture" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
+                            <label for="prefecture_id" class="col-md-4 col-form-label text-md-right">{{ __('お住まい') }}</label>
 
                             <div class="col-md-6">
-                                <select type="text" name="prefecture" id="prefecture" required autocomplete="prefecture">
+                                <select type="text" name="prefecture_id" id="prefecture_id" required autocomplete="prefecture_id">
                                     @foreach($prefectures as $prefecture)
-                                        <option value="{{ $prefecture->id }}">{{ $prefecture->prefecture }}</option>
+                                        <option value="{{ $prefecture->id }}">{{ $prefecture->prefecture_name }}</option>
                                     @endforeach
                                 </select>
 
@@ -140,7 +140,7 @@
 
                             <div class="col-md-6">
                                 @foreach ($hobbies as $hobby)
-                                    <label for="{{ $hobby->id }}"><input type="checkbox" name="hobby" value="{{ $hobby->id }}">{{ $hobby->hobby }}</label>
+                                    <label for="{{ $hobby->id }}"><input type="checkbox" name="hobby[]" value="{{ $hobby->id }}">{{ $hobby->hobby }}</label>
                                 @endforeach
                                 @error('趣味')
                                     <span class="invalid-feedback" role="alert">
@@ -151,16 +151,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="profession" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                            <label for="profession_id" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
 
                             <div class="col-md-6">
-                                <select name="profession" id="profession" required autocomplete="profession">
-                            　      <option value="">選択してください</option>
-                                    <option value="会社員">会社員</option>
-                                    <option value="会社役員">会社役員</option>
-                                    <option value="自営業">自営業</option>
-                                    <option value="公務員">公務員</option>
-                                    <option value="販売員">販売員</option>
+                                <select name="profession_id" id="profession_id" required autocomplete="profession_id">
+                            　      @foreach($professions as $profession)
+                                        <option value="{{ $profession->id }}">{{ $profession->profession_name }}</option>
+                                    @endforeach
                                 </select>
                                 @error('職業')
                                     <span class="invalid-feedback" role="alert">
