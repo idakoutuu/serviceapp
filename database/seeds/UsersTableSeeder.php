@@ -20,8 +20,8 @@ class UsersTableSeeder extends Seeder
             'gender' => 'male',
             'birth' => 19940205,
             'photo' => 'logo.png',
-            'prefecture' => '東京都',
-            'profession' => '会社員'
+            'prefecture_id' => 13,
+            'profession_id' => 1,
         ];
         User::insert($param);
     }
