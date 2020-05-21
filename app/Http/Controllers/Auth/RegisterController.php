@@ -96,11 +96,14 @@ class RegisterController extends Controller
         return view('auth.register', ['hobbies' => $hobbies, 'prefectures' => $prefectures, 'professions' => $professions]);
     }
 
-    public function verification(Request $request, Hobby $hobby)
+    public function verification(Request $request)
     {
         $this->validator($request->all())->validate();
+        $pref = Prefecture::find($request->prefecture_id);
+        $hobbies = Hobby::find($request->hobby);
+        $professions = Profession::find($request->profession_id);
         $inputs = $request->all();
-        return view('auth.verification', ['inputs' => $inputs]);
+        return view('auth.verification', ['inputs' => $inputs, 'pref' => $pref, 'hobbies' => $hobbies, 'professions' => $professions]);
     }
 
     protected function registered(Request $request, $user)
