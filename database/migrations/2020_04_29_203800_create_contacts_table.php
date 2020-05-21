@@ -15,6 +15,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('title');
             $table->string('text');
             $table->timestamps();
@@ -22,7 +23,7 @@ class CreateContactsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.　
      *
      * @return void
      */
