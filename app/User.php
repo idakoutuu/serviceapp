@@ -41,7 +41,7 @@ class User extends Authenticatable
 
     public function prefecture()
     {
-        return $this->belongTo('App\Prefecture');
+        return $this->belongsTo('App\Prefecture');
     }
 
     public function hobby()
@@ -51,7 +51,12 @@ class User extends Authenticatable
 
     public function profession()
     {
-        return $this->belongTo('App\Profession');
+        return $this->belongsTo('App\Profession');
+    }
+
+    public function contact()
+    {
+        return $this->hasMany('App\Contact');
     }
 }
 
