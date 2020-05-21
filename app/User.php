@@ -44,9 +44,14 @@ class User extends Authenticatable
         return $this->belongTo('App\Prefecture');
     }
 
-    public function hobbies()
+    public function hobby()
     {
         return $this->belongsToMany('App\Hobby');
+    }
+
+    public function profession()
+    {
+        return $this->belongTo('App\Profession');
     }
 }
 
