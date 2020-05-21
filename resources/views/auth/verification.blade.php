@@ -47,19 +47,21 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>お住まい:</label>
-                        {{$inputs['prefecture_id']}}
+                        {{ $pref['prefecture_name'] }}
                         <input type="hidden" name="prefecture_id" value="{{$inputs['prefecture_id']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>趣味:</label>
-                        {{$inputs['hobby']}}
+                        @foreach ($hobbies as $hobby)
+                        {{ $hobby['hobby'] }}
+                        @endforeach
                         <input type="hidden" name="hobby" value="{{$inputs['hobby']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>職業:</label>
-                        {{$inputs['profession_id']}}
+                        {{ $professions['profession_name'] }}
                         <input type="hidden" name="profession_id" value="{{$inputs['profession_id']}}" class="form-control">
                         </div>
 
