@@ -71,6 +71,9 @@
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.anypage') }}">ユーザー一覧</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">ログアウト</a>
+                        </li>
                         @endauth
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
