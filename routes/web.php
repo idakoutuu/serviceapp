@@ -17,7 +17,7 @@ Route::group(['as' => 'app.'], function(){
     Route::get('service', 'AppController@service')->name('service');
     Route::get('message', 'AppController@message')->name('message');
     
-    Route::get('contact', 'AppController@contact')->name('contact');
+    Route::get('contact', 'AppController@contact')->middleware('auth')->name('contact');
     Route::post('contact/confirm', 'AppController@confirm')->name('confirm');
     Route::post('contact/thanks', 'AppController@send')->name('thanks');
     
