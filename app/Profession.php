@@ -14,6 +14,6 @@ class Profession extends Model
 
     public function user()
     {
-        return $this->hasOne('App\user');
+        return $this->hasOne('App\User');
     }
 }
