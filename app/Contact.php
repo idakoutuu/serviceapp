@@ -16,4 +16,9 @@ class Contact extends Model
         'title' => 'required|max:50',
         'text' => 'required|max:300',
     );
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
