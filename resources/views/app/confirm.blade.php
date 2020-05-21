@@ -3,6 +3,8 @@
 @section('content')
 <form action="{{ route('app.thanks') }}" method="post">
         @csrf
+        <input type="hidden" name="user_id" value="{{ $user_id }}">
+
         <div class="col-md-6 offset-md-3 form-group col-form-label">
         <label>件名：</label>
         {{$inputs['title']}}

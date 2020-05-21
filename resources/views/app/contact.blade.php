@@ -18,7 +18,7 @@
     @section('content')
         <form action="{{ route('app.confirm') }}" method="post" class="row contact-form" style="text-align: center;">
             @csrf
-            <div class="col-md-6 offset-md-3 form-group">
+            <div class="col-md-6 offset-md-3 form-group">                
                 <label>件名</label>
                 <input type="text" name="title" value="{{ old('title') }}" class="form-control">
                     
