@@ -30,16 +30,20 @@ class AppController extends Controller
         return view('app.contact');
     }
 
-    public function confirm(ContactRequest $request)
+    public function confirm(ContactRequest $request, Contact $contact)
     {
          //フォームから受け取ったすべてのinputの値を取得
+         $user = Auth::user();
+         $user_id = $contact->find($user->id);
          $inputs = $request->all();
-         return view('app.confirm', ['inputs'=>$inputs]);
+         return view('app.confirm', ['user_id' => $user_id, 'inputs'=>$inputs]);
     }
     public function send(ContactRequest $request, Contact $contact)
     {  
-         $form = $request->all();
-         $contact->fill($form)->save();
+         $contact->title = $request->title;
+         $contact->text = $request->text;
+         $contact->user_id = auth()->id();
+         $contact->save();
          return view(('app.thanks'));
     }
 
