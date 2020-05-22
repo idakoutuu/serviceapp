@@ -140,7 +140,7 @@
 
                             <div class="col-md-6">
                                 @foreach ($hobbies as $hobby)
-                                    <label for="{{ $hobby->id }}"><input type="checkbox" name="hobby" value="{{ $hobby->id }}" id="{{ $hobby->id }}">{{ $hobby->hobby }}</label>
+                                    <label for="{{ $hobby->id }}"><input type="checkbox" name="hobby[]" value="{{ $hobby->id }}" id="{{ $hobby->id }}">{{ $hobby->hobby }}</label>
                                 @endforeach
                                 @error('趣味')
                                     <span class="invalid-feedback" role="alert">

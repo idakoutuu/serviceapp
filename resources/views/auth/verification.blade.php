@@ -41,8 +41,6 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>プロフィール写真:</label>
-                        {{$inputs['']}}
-                        <input type="hidden" name="picture" value="{{$inputs['picture']}}" class="form-control">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
@@ -52,28 +50,29 @@
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
-                        <label>趣味:</label>
-                        @foreach ($hobbies as $hobby)
-                        {{ $hobby['hobby'] }}
-                        @endforeach
-                        <input type="hidden" name="hobby" value="{{$inputs['hobby']}}" class="form-control">
+                            <label>趣味:</label>
+                            {{ implode (',', $hobbies) }}
+                            @foreach ($hobbies as $hobby_id => $hobby)
+                            <input type="hidden" name="hobby" value="{{ $hobby_id }}" class="form-control">
+                            @endforeach
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
-                        <label>職業:</label>
-                        {{ $professions['profession_name'] }}
-                        <input type="hidden" name="profession_id" value="{{$inputs['profession_id']}}" class="form-control">
+                            <label>職業:</label>
+                            {{ $professions['profession_name'] }}
+                            <input type="hidden" name="profession_id" value="{{$inputs['profession_id']}}" class="form-control">
                         </div>
 
-                        <button type="submit" name="action" value="back" class="form-control">
-                            入力内容修正
-                        </button>
+                        <div>
+                            <button type="submit" name="action" value="back" class="form-control">
+                                入力内容修正
+                            </button>
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
-                        <button type="submit" name="action" value="submit" class="form-control">
-                            送信する
-                        </button>
+                            <button type="submit" name="action" value="submit" class="form-control">
+                                送信する
+                            </button>
                         </div>
                     </form>
                 </div>

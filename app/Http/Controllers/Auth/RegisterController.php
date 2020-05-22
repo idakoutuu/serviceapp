@@ -66,7 +66,6 @@ class RegisterController extends Controller
             'birth_year'  => ['required_with:birth_month,birth_day'],
             'birth_month' => ['required_with:birth_year,birth_day'],
             'birth_day'   => ['required_with:birth_year,birth_month'],
-            'photo' => ['string'],
         ]);
     }
 
@@ -100,7 +99,7 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         $pref = Prefecture::find($request->prefecture_id);
-        $hobbies = Hobby::find($request->hobby);
+        $hobbies = Hobby::find($request->hobby)->pluck('hobby', 'id')->toArray();
         $professions = Profession::find($request->profession_id);
         $inputs = $request->all();
         return view('auth.verification', ['inputs' => $inputs, 'pref' => $pref, 'hobbies' => $hobbies, 'professions' => $professions]);
