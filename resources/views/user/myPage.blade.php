@@ -9,7 +9,9 @@
 <body>
     @section('title')
     @section('content')
-        
+        <div class="page">
+            name:                      <span>{{ $auth->name }}</span>
+        </div>
     @endsection
 </body>
 </html>

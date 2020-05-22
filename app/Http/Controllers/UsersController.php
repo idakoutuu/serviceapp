@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -13,7 +14,8 @@ class UsersController extends Controller
 
     public function mypage(Request $request)
     {
-        return view('user.mypage');
+        $auth = Auth::user();
+        return view('user.usertop', ['auth' -> $auth]);
     }
 
     public function anypage(Request $request)
