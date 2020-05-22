@@ -10,22 +10,22 @@ use App\Contact;
 
 class AppController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         return view('app.index');
     }
 
-    public function service(Request $request)
+    public function service()
     {
         return view('app.service');
     }
 
-    public function message(Request $request)
+    public function message()
     {
         return view('app.message');
     }
 
-    public function contact(Request $request)
+    public function contact()
     {
         return view('app.contact');
     }
