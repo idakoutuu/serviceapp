@@ -65,7 +65,14 @@ class RegisterController extends Controller
             'birth' => ['date'],
             'birth_year'  => ['required_with:birth_month,birth_day'],
             'birth_month' => ['required_with:birth_year,birth_day'],
-            'birth_day'   => ['required_with:birth_year,birth_month'],
+            'birth_day'   => ['required_with:birth_year,birth_month'], 
+        ]);
+    }
+
+    public function imgValidate(Request $request)
+    {
+        return $request->validate([
+            'photo' => ['required', 'file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ]);
     }
 
@@ -78,18 +85,18 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'birth' => $data['birth'],
-            'photo' =>$data['photo'],
+            'gender'   => $data['gender'],
+            'birth'    => $data['birth'],
+            'photo'    => $data['photo'],
         ]);
     }
 
     public function showRegistrationForm(Hobby $hobby, Prefecture $prefecture, Profession $profession)
     {
-        $hobbies = $hobby->all();
+        $hobbies     = $hobby->all();
         $prefectures = $prefecture->all();
         $professions = $profession->all();
         return view('auth.register', ['hobbies' => $hobbies, 'prefectures' => $prefectures, 'professions' => $professions]);
@@ -97,20 +104,24 @@ class RegisterController extends Controller
 
     public function verification(Request $request)
     {
-        $this->validator($request->all())->validate();
-        $pref = Prefecture::find($request->prefecture_id);
-        $hobbies = Hobby::find($request->hobby)->pluck('hobby', 'id')->toArray();
-        $professions = Profession::find($request->profession_id);
-        $inputs = $request->all();
-        return view('auth.verification', ['inputs' => $inputs, 'pref' => $pref, 'hobbies' => $hobbies, 'professions' => $professions]);
+        $inputs = $request->input();
+        $this->validator($inputs)->validate();
+        $this->imgValidate($request);
+
+        $uploadedFile = $this->saveImage($request->file('photo'));
+        $data = [
+            'inputs'       => $inputs,
+            'pref'         => Prefecture::find($request->prefecture_id),
+            'hobbies'      => Hobby::find($request->hobby)->pluck('hobby', 'id')->toArray(),
+            'professions'  => Profession::find($request->profession_id),
+            'uploadedFile' => str_replace('public', 'storage', $uploadedFile),
+        ];
+        
+        return view('auth.verification', $data);
     }
 
-    protected function registered(Request $request, $user)
+    private function saveImage($file)
     {
-        $request->validate([
-        'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-        $request->photo->storeAS('public/profile_images', Auth::id(). 'jpg');
-        return redirect('auth.verification')->with('success', '');
+        return $file->storeAs('public/tmp_images', $file->hashName());
     }
 }
