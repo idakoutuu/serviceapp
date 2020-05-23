@@ -21,11 +21,11 @@
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('名前')
+                                @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -35,11 +35,11 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('メールアドレス')
+                                @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -49,11 +49,11 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('パスワード')
+                                @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -64,6 +64,11 @@
                                 男<input class="col-md-4" id="gender" type="radio" class="form-control" name="gender" required autocomplete="gender" value="男">
                                 女<input class="col-md-4" id="gender" type="radio" class="form-control" name="gender" required autocomplete="gender" value="女">
                             </div>
+                            @if ($errors->has('gender'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('gender') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group row">
@@ -90,11 +95,11 @@
                                 </select>　日
 
 
-                                @error('生年月日')
+                                @if ($errors->has('birth'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('birth') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -104,16 +109,6 @@
 
                             <div class="col-md-6">
                                 <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                    </ul>
-                                </div>
-                                @endif
-                                
                             </div>
                         </div>
 
@@ -127,11 +122,11 @@
                                     @endforeach
                                 </select>
 
-                                @error('お住まい')
+                                @if ($errors->has('prefecture_id'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('prefecture_id') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -142,11 +137,11 @@
                                 @foreach ($hobbies as $hobby)
                                     <label for="{{ $hobby->id }}"><input type="checkbox" name="hobby[]" value="{{ $hobby->id }}" id="{{ $hobby->id }}">{{ $hobby->hobby }}</label>
                                 @endforeach
-                                @error('趣味')
+                                @if ($errors->has('hobby'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('hobby') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -159,11 +154,11 @@
                                         <option value="{{ $profession->id }}">{{ $profession->profession_name }}</option>
                                     @endforeach
                                 </select>
-                                @error('職業')
+                                @if ($errors->has('profession_id'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $errors->first('profession_id') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
