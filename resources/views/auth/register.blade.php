@@ -94,7 +94,7 @@
                                    @endfor
                                 </select>　日
 
-
+                                
                                 @if ($errors->has('birth'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('birth') }}</strong>
