@@ -17,18 +17,23 @@
         <input type="hidden" name="text" value="{{$inputs['text']}}" class="form-control">
         </div>
 
-        <a href="{{ route('app.contact') }}">
-            <div class="col-md-6 offset-md-3 form-group col-form-label">
+        <div class="col-md-6 offset-md-3 form-group col-form-label">
             <button type="submit" name="action" value="back" class="form-control">
-                入力内容修正
+                <a href="javascript:history.back();">
+                    入力内容修正
+                </a>
             </button>
-            </div>
-        </a>
+        </div>
 
         <div class="col-md-6 offset-md-3 form-group col-form-label">
         <button type="submit" name="action" value="submit" class="form-control">
             送信する
         </button>
         </div>
+        <style>
+            a {
+                color : black;
+            }
+        </style>
     </form>
 @endsection
