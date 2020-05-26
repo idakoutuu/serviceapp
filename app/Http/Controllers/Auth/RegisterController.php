@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Hobby;
 use App\Prefecture;
 use App\Profession;
-
+use Illuminate\Support\Facades\File;
 
 class RegisterController extends Controller
 {
@@ -89,7 +89,7 @@ class RegisterController extends Controller
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
             'gender'   => $data['gender'],
-            'birth'    => $data['birth'],
+            'birth'    => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'] ,
             'photo'    => $data['photo'],
         ]);
     }
@@ -123,5 +123,10 @@ class RegisterController extends Controller
     private function saveImage($file)
     {
         return $file->storeAs('public/tmp_images', $file->hashName());
+    }
+
+    public function registered(Request $request, $user)
+    {
+        File::move('public/tmp_images', 'public/images');
     }
 }
