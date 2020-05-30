@@ -17,9 +17,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'shin',
             'email' => 'idakoutuu0205@gmail.com',
             'password' => Hash::make('shin19940205'),
-            'gender' => 'male',
+            'gender' => '男',
             'birth' => 19940205,
-            'photo' => 'logo.png',
             'prefecture_id' => 13,
             'profession_id' => 1,
         ];
