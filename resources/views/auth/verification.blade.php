@@ -41,7 +41,8 @@
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
                         <label>プロフィール写真:</label>
-                        <img src="{{ url($uploadedFile) }}" alt="">
+                        <input type="hidden" name="photo" value="{{ $uploadedFile }}">
+                        <img src="{{ url($uploadedFile) }}" alt="" width="100px" height="100px">
                         </div>
 
                         <div class="col-md-6 offset-md-3 form-group col-form-label">
