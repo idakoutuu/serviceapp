@@ -94,7 +94,7 @@
                                    @endfor
                                 </select>　日
 
-                                
+
                                 @if ($errors->has('birth'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('birth') }}</strong>
@@ -108,7 +108,7 @@
                             <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール写真') }}</label>
 
                             <div class="col-md-6">
-                                <input id="photo" type="file" class="@error('photo') is-invalid @enderror" name="photo">
+                                <input id="photo" type="file"　name="photo" class="@error('photo') is-invalid @enderror">
                             </div>
                         </div>
 
