@@ -90,7 +90,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'gender'   => $data['gender'],
             'birth'    => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'] ,
-            'photo'    => $data['photo'],
+            'prefecture_id' => $data['prefecture_id'],
+            'profession_id' => $data['profession_id']
         ]);
     }
 
@@ -103,7 +104,7 @@ class RegisterController extends Controller
     }
 
     public function verification(Request $request)
-    {
+    {   
         $inputs = $request->input();
         $this->validator($inputs)->validate();
         $this->imgValidate($request);
@@ -116,7 +117,8 @@ class RegisterController extends Controller
             'professions'  => Profession::find($request->profession_id),
             'uploadedFile' => str_replace('public', 'storage', $uploadedFile),
         ];
-        
+
+        $request->session()->put('data', $data);
         return view('auth.verification', $data);
     }
 
@@ -125,8 +127,17 @@ class RegisterController extends Controller
         return $file->storeAs('public/tmp_images', $file->hashName());
     }
 
-    public function registered(Request $request, $user)
+    protected function registered(Request $request, $user)
     {
-        File::move('public/tmp_images', 'public/images');
-    }
+        $data = $request->session()->get('data');
+        $tmp_path = $data['uploadedFile'];
+
+        $filename = str_replace('storage/tmp_images/', '', $tmp_path);
+        $storage_path = 'public/images/'. $filename;
+        $tmp = str_replace('storage/', 'public/' , $tmp_path);
+        $request->session()->forget('data');
+        Storage::move($tmp, $storage_path);
+
+        return view('auth.complete');
+    }   
 }
