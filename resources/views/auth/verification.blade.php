@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+<style>
+    .repair {
+        color : black;
+    }
+</style>
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -65,9 +69,11 @@
                             <input type="hidden" name="profession_id" value="{{$inputs['profession_id']}}" class="form-control">
                         </div>
 
-                        <div>
+                        <div class="col-md-6 offset-md-3 form-group col-form-label">
                             <button type="submit" name="action" value="back" class="form-control">
-                                入力内容修正
+                                <a href="javascript:history.back();" class="repair">
+                                    入力内容修正
+                                </a>
                             </button>
                         </div>
 
