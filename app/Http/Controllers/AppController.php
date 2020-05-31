@@ -32,9 +32,9 @@ class AppController extends Controller
 
     public function confirm(ContactRequest $request, Contact $contact)
     {
-         //フォームから受け取ったすべてのinputの値を取得
          $user = Auth::user();
          $user_id = $contact->find($user->id);
+         //フォームから受け取ったすべてのinputの値を取得
          $inputs = $request->all();
          return view('app.confirm', ['user_id' => $user_id, 'inputs'=>$inputs]);
     }
