@@ -58,5 +58,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Contact');
     }
+
+    public function photograph()
+    {
+        return $this->hasOne('App\Photograph');
+    }
 }
 
