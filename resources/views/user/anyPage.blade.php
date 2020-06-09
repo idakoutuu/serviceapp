@@ -9,5 +9,14 @@
 </head>
 <body>
     @section('title')
+    @section('content')
+     @if(!empty($users))
+      @foreach($users as $user)
+        <ul>
+            <li>{{ $user->name }}<img src="{{ asset('storage/images/' . $user->photograph) }}" alt=""></li>
+        </ul>
+      @endforeach
+    @endif
+    @endsection
 </body>
 </html>
