@@ -9,7 +9,7 @@ class Photograph extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'photo_1' => 'required'
+        'photo' => 'required'
     );
 
     public function user()
