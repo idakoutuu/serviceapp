@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Hobby;
 use App\Prefecture;
 use App\Profession;
-use Illuminate\Support\Facades\File;
+use App\Photograph;
 
 class RegisterController extends Controller
 {
@@ -138,6 +138,11 @@ class RegisterController extends Controller
         $request->session()->forget('data');
         Storage::move($tmp, $storage_path);
 
+        $photograph = new Photograph;
+        $photograph->photo = $filename;
+        $photograph->user_id = auth()->id();
+        $photograph->save();
+        
         return view('auth.complete');
     }   
 }
