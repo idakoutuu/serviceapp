@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class UsersController extends Controller
 {
-    public function usertop(Request $request)
+    public function usertop()
     {
         return view('user.usertop');
     }
@@ -15,11 +16,12 @@ class UsersController extends Controller
     public function mypage(Request $request)
     {
         $auth = Auth::user();
-        return view('user.usertop', ['auth' -> $auth]);
+        return view('user.mypage', ['auth' => $auth]);
     }
 
     public function anypage(Request $request)
     {
-        return view('user.anypage');
+        $users = User::all();
+        return view('user.anypage', ['users' => $users]);
     }
 }
