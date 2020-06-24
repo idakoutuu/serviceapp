@@ -89,7 +89,7 @@ class RegisterController extends Controller
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
             'gender'   => $data['gender'],
-            'birth'    => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'] ,
+            'birth'    => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'],
             'prefecture_id' => $data['prefecture_id'],
             'profession_id' => $data['profession_id']
         ]);
@@ -108,7 +108,6 @@ class RegisterController extends Controller
         $inputs = $request->input();
         $this->validator($inputs)->validate();
         $this->imgValidate($request);
-
         $uploadedFile = $this->saveImage($request->file('photo'));
         $data = [
             'inputs'       => $inputs,
@@ -143,6 +142,14 @@ class RegisterController extends Controller
         $photograph->user_id = auth()->id();
         $photograph->save();
         
+        $auth = Auth::user();
+        $hobby = new Hobby;
+        foreach ($request->hobby as $hob) {  
+            $hobby->user()->attach(
+                    ['user_id' => $auth->id],
+                    ['hobby_id' => $hob]
+                );
+        };
         return view('auth.complete');
     }   
 }

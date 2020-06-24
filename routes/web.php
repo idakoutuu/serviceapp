@@ -28,6 +28,9 @@ Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
     Route::get('usertop', 'UsersController@usertop')->middleware('auth')->name('usertop');
     Route::get('mypage', 'UsersController@mypage')->middleware('auth')->name('mypage');
     Route::get('anypage', 'UsersController@anypage')->middleware('auth')->name('anypage');
+    Route::get('edit', 'UsersController@edit')->middleware('auth')->name('edit');
+    Route::post('update', 'UsersController@update')->middleware('auth')->name('update');
+    Route::post('updated', 'UsersController@updated')->middleware('auth')->name('updated');
 });
 
 

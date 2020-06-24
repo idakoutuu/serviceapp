@@ -1,96 +1,85 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
     <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>@yield('title')</title>
-        <style>
-             .jumbotron {
-                 background:url({{ asset('img/night.jpg') }}) center no-repeat; background-size: cover;
-                 }
-
-             .top-title {
-                 height: 600px;
-             }
-                 
-             .service-name {
-                 text-align: center;
-                 font-size: 2.5rem; 
-                 color: #DDDDDD		;
-             }
-
-             footer ul {
-                 display: flex;
-             }
-
-             footer ul li a {
-                color: white;
-            }
-
-            footer p {
-                text-align: center;
-                color: white;
-            }
-        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ミートマッチング</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
-        <header class="title">
-            <div class="jumbotron top-title">
-                <div class="container">
-                    <img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="50px" height="50px">
-                    <h1 class="service-name">トップページ</h1>
-                </div>
-            </div>
-            <nav class="navbar navbar-expand-sm  navbar-light bg-light">
-                <a class="navbar-brand" href="#">メニュー</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav w-100 nav-justified mr-auto">
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{asset('img/logo.png')}}" alt="サービスロゴ"　width="50px" height="50px">
+                </a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('app.index')}}">トップ<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('app.index')}}">トップ<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('app.service') }}">当サービスについて<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('app.service') }}">当サービスについて<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('app.message') }}">利用者の声</a>
+                            <a class="nav-link" href="{{ route('app.message') }}">利用者の声</a>
                         </li>
                         @guest
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">新規登録</a>
+                                <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                         </li>
                         @endguest
                         @auth
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.mypage') }}">マイページ</a>
+                            <a class="nav-link" href="{{ route('user.mypage') }}">マイページ</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.anypage') }}">ユーザー一覧</a>
+                            <a class="nav-link" href="{{ route('user.anypage') }}">ユーザー一覧</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">ログアウト</a>
+                                <a class="nav-link" href="{{ route('home') }}">ログアウト</a>
                         </li>
                         @endauth
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
+                            <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-                    </form>
                 </div>
-            </nav>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-white font-weight-bold">トップページ</h1>
+                        <hr class="divider my-4" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 font-weight-light mb-5"></p>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+                    </div>
+                </div>
+            </div>
         </header>
-         <div class="content">
-            @yield('content')
-         </div>
-
-       <footer class="bg-secondary">
+        @yield('content')
+       
+        <!-- Footer-->
+        <footer class="bg-light py-5">
             <ul class="navbar-nav mr-auto text-light">
                 <li class="nav-item">
                 <a class="nav-link" href="{{ route('app.index') }}">トップ</a>
@@ -101,21 +90,38 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ route('app.message') }}">利用者の声</a>
                 </li>
+                @guest
                 <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}}">ログイン</a>
+                    <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">新規登録</a>
+                        <a class="nav-link" href="{{ route('register') }}">新規登録</a>
                 </li>
+                @endguest
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.mypage') }}">マイページ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.anypage') }}">ユーザー一覧</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">ログアウト</a>
+                </li>
+                @endauth
                 <li class="nav-item">
                 <a class="nav-link" href="{{ route('app.contact') }}">お問い合わせ</a>
                 </li>
             </ul>
-            <p>Copyright ©　●●●</p>
-       </footer>
-       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - meat maching</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
     </body>
-    
 </html>

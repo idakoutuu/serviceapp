@@ -59,7 +59,7 @@
                             <label>趣味:</label>
                             {{ implode (',', $hobbies) }}
                             @foreach ($hobbies as $hobby_id => $hobby)
-                            <input type="hidden" name="hobby" value="{{ $hobby_id }}" class="form-control">
+                            <input type="hidden" name="hobby[]" value="{{ $hobby_id }}" class="form-control">
                             @endforeach
                         </div>
 

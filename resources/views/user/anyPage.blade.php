@@ -1,7 +1,7 @@
 @extends('layouts.helloapp')
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +12,7 @@
     @section('content')
      @if(!empty($users))
       @foreach($users as $user)
-        <ul>
-            <li>{{ $user->name }}<img src="{{ asset('storage/images/' . $user->photograph) }}" alt=""></li>
-        </ul>
+      {{$user->name}} . <img src="{{ asset('/storage/images/' . $photo->photo) }}" alt="">
       @endforeach
     @endif
     @endsection

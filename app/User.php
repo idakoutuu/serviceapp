@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function hobby()
     {
-        return $this->belongsToMany('App\Hobby');
+        return $this->belongsToMany('App\Hobby', 'hobby_user', 'user_id', 'hobby_id');
     }
 
     public function profession()
@@ -61,7 +61,7 @@ class User extends Authenticatable
 
     public function photograph()
     {
-        return $this->hasMany('App\Photograph');
+        return $this->hasOne('App\Photograph');
     }
 }
 

@@ -12,7 +12,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
         $param = [
             'name' => 'shin',
             'email' => 'idakoutuu0205@gmail.com',
