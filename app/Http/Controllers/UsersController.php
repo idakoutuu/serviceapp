@@ -54,7 +54,7 @@ class UsersController extends Controller
         $uploadedFile = $this->saveImage($request->file('photo'));
         if($request->file('photo')) {
             $files = Storage::allfiles($auth->id);
-            Storage::delete($files);
+            Storage::delete('storage/images/PHFDFoPeN8LhIHGxTy1KOBddOlF0gmdvXKvwKBD7.png');
             $path = $request->file('photo')->storePublicly($auth->id);
             $photograph = new Photograph;
             $photograph->photo = str_replace('/storage', 'public', $path);
@@ -68,14 +68,12 @@ class UsersController extends Controller
             unset($form['hobby']);
             $users->save();
             
-            $hobby->user()->detach();
+            $hobby->user($auth->id)->detach();
 
-            foreach ($request->hobby as $hob) {  
-                $hobby->user()->update(
-                        ['user_id' => $auth->id],
-                        ['hobby_id' => $hob]
-                    );
-            };
+            $hobby->user()->attach(
+                ['user_id' => $auth->id],
+                ['hobby_id' => [$request->hobby]]
+            );
         }
         //更新した際のプロフィールの更新、写真の表示
         return view('user.update' , [ 'auth' => $auth,'inputs' => $inputs, 'pref' => $pref, 'hobbies' => $hobbies, 'professions' => $professions, 'uploadedFile' => $uploadedFile,

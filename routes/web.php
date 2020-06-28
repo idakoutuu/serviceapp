@@ -24,7 +24,9 @@ Route::group(['as' => 'app.'], function(){
     Route::get('terms', 'AppController@terms')->name('terms');
     Route::get('restaurant', 'AppController@restaurant')->name('restaurant');
 });
-Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
+
+//'prefix' => 'user'　ここ聞く
+Route::group(['as' => 'user.'],function(){
     Route::get('usertop', 'UsersController@usertop')->middleware('auth')->name('usertop');
     Route::get('mypage', 'UsersController@mypage')->middleware('auth')->name('mypage');
     Route::get('anypage', 'UsersController@anypage')->middleware('auth')->name('anypage');
@@ -32,9 +34,6 @@ Route::group(['as' => 'user.', 'prefix' => 'user'],function(){
     Route::post('update', 'UsersController@update')->middleware('auth')->name('update');
     Route::post('updated', 'UsersController@updated')->middleware('auth')->name('updated');
 });
-
-
-
 
 
 Auth::routes();
