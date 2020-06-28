@@ -54,7 +54,7 @@ class UsersController extends Controller
         $uploadedFile = $this->saveImage($request->file('photo'));
         if($request->file('photo')) {
             $files = Storage::allfiles($auth->id);
-            Storage::delete('storage/images/PHFDFoPeN8LhIHGxTy1KOBddOlF0gmdvXKvwKBD7.png');
+            Storage::delete($files);
             $path = $request->file('photo')->storePublicly($auth->id);
             $photograph = new Photograph;
             $photograph->photo = str_replace('/storage', 'public', $path);
