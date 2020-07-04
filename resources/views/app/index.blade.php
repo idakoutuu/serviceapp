@@ -16,7 +16,7 @@
                 <h2 class="text-white mt-0">当サイトはマッチングサービスです</h2>
                 <hr class="divider light my-4" />
                 <p class="text-white-50 mb-4">当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです</p>
-                <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">サービス概要</a>
+                <a class="btn btn-light btn-xl js-scroll-trigger" href="{{ route('app.service') }}">サービス概要</a>
             </div>
         </div>
     </div>
@@ -80,6 +80,18 @@
     </div>
 </section>
 <!-- Portfolio-->
+
+<div class="col-lg-6 col-md-6 text-center">
+    <div class="mt-5">
+        <i class="fas fa-4x fa-utensils text-primary mb-4"></i>
+        <h3 class="h4 mb-2">レストラン</h3>
+        <form action="" method="get">
+        　   <input type="submit" value="検索">
+        </form>
+
+    </div>
+</div>
+<hr>
 <div id="portfolio">
     <div class="container-fluid p-0">
         <div class="row no-gutters">

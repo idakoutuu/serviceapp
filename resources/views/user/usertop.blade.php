@@ -16,7 +16,7 @@
                 <h2 class="text-white mt-0">当サイトはマッチングサービスです</h2>
                 <hr class="divider light my-4" />
                 <p class="text-white-50 mb-4">当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです当サイトはマッチングサービスです</p>
-                <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">サービス概要</a>
+                <a class="btn btn-light btn-xl js-scroll-trigger" href="{{ route('app.service') }}">サービス概要</a>
             </div>
         </div>
     </div>

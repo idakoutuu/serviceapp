@@ -44,7 +44,15 @@ class UsersController extends Controller
         return view('user.edit', ['auth' => $auth, 'prefectures' => $prefectures, 'hobbies' => $hobbies, 'professions' => $professions, 'hob' => $hob]);
     }
 
-    public function update(Request $request, Hobby $hobby)
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'photo' => ['required', 'file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        ]);
+    }
+
+    public function update(Request $request, User $user, Photograph $photograph)
     {
         $auth = Auth::user();
         $inputs = $request->input();
@@ -53,30 +61,30 @@ class UsersController extends Controller
         $professions = Profession::find($request->profession_id);
         $uploadedFile = $this->saveImage($request->file('photo'));
         if($request->file('photo')) {
-            $files = Storage::allfiles($auth->id);
+            $files = $auth->photograph['photo'];
             Storage::delete($files);
-            $path = $request->file('photo')->storePublicly($auth->id);
-            $photograph = new Photograph;
-            $photograph->photo = str_replace('/storage', 'public', $path);
-            $photograph->user_id = $auth->id;
+            $path = $request->file('photo')->storeAs('public/images', $request->file('photo')->hashName());
+            $photograph->where('user_id', '=', $auth->id)->delete();
+            $photograph->photo = str_replace('storage', 'public', $path);
+            $photograph->user_id = auth()->id();
             $photograph->save();
             
-            $users = User::find($auth->id);
+            $user = User::find($auth->id);
             $form = $request->input();
-            $users->update($form);
+            $user->update($form);
             unset($form['_token']);
             unset($form['hobby']);
-            $users->save();
-            
-            $hobby->user($auth->id)->detach();
-
-            $hobby->user()->attach(
-                ['user_id' => $auth->id],
-                ['hobby_id' => [$request->hobby]]
-            );
+            $user->save();
+            $user->hobby()->detach();
+            foreach ($request->hobby as $hob) {
+                $user->hobby()->attach(
+                    ['user_id' => $auth->id],
+                    ['hobby_id' => $hob]
+                );
+            };
         }
         //更新した際のプロフィールの更新、写真の表示
-        return view('user.update' , [ 'auth' => $auth,'inputs' => $inputs, 'pref' => $pref, 'hobbies' => $hobbies, 'professions' => $professions, 'uploadedFile' => $uploadedFile,
+        return view('user.update' , [ 'auth' => $auth,'inputs' => $inputs, 'pref' => $pref, 'hobbies' => $hobbies, 'professions' => $professions, 'uploadedFile' => str_replace('public', 'storage', $uploadedFile),
         ]);
     }
 
