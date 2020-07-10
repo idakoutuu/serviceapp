@@ -34,6 +34,13 @@ class UsersController extends Controller
         return view('user.anypage', ['users' => $users, 'photograph' => $photograph]);
     }
 
+    public function otheruser($id)
+    {
+        $user = User::find($id);
+        $hobbies = ($user->hobby)->pluck('hobby', 'id')->toArray();
+        return view('user.otheruser', ['user' => $user , 'hobbies' => $hobbies]);
+    }
+
     public function edit(Prefecture $prefecture, Hobby $hobby, Profession $profession)
     {
         $auth = Auth::user();

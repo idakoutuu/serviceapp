@@ -85,7 +85,7 @@
     <div class="mt-5">
         <i class="fas fa-4x fa-utensils text-primary mb-4"></i>
         <h3 class="h4 mb-2">レストラン</h3>
-        <form action="" method="get">
+        <form action="/restaurant/event_id" method="get">
         　   <input type="submit" value="検索">
         </form>
 

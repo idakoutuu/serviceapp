@@ -22,19 +22,24 @@ Route::group(['as' => 'app.'], function(){
     Route::post('contact/thanks', 'AppController@send')->name('thanks');
     
     Route::get('terms', 'AppController@terms')->name('terms');
-    Route::get('restaurant', 'AppController@restaurant')->name('restaurant');
+    Route::get('restaurant/{event_id}', 'AppController@restaurant')->name('restaurant');
 });
 
 //'prefix' => 'user'　ここ聞く
 Route::group(['as' => 'user.'],function(){
-    Route::get('usertop', 'UsersController@usertop')->middleware('auth')->name('usertop');
+    Route::get('usertop', 'UsersCon  troller@usertop')->middleware('auth')->name('usertop');
     Route::get('mypage', 'UsersController@mypage')->middleware('auth')->name('mypage');
     Route::get('anypage', 'UsersController@anypage')->middleware('auth')->name('anypage');
+    Route::get('otheruser/{id}', 'UsersController@otheruser')->middleware('auth')->name('otheruser');
     Route::get('edit', 'UsersController@edit')->middleware('auth')->name('edit');
     Route::post('update', 'UsersController@update')->middleware('auth')->name('update');
     Route::post('updated', 'UsersController@updated')->middleware('auth')->name('updated');
 });
 
+//Route::get('sample/mailable/preview', function() {
+  //  return new App\Mail\SampleNotification();
+//});
+Route::get('sample/mailable/send', 'SampleController@SampleNotification');
 
 Auth::routes();
 Route::post('register/verification', 'Auth\RegisterController@verification')->name('verification');//ここはrouter.phpのregistermethodとどちらが採用されるのか？

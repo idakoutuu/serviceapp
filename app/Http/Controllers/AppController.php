@@ -11,22 +11,8 @@ use App\Contact;
 
 class AppController extends Controller
 {
-    public function index($event_id)
+    public function index()
     {
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', 'https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=458e7c74ce130a78394c9522748bc0c4&hit_per_page=30&offset_page=10&freeword=肉', [
-            'query' => ['event_id' => $event_id]
-        ]);
-
-        $json = json_decode($res->getBody(), true);
-
-        return array(
-            "name" => $json['events'][0]["name"], 
-            "area" => $json['events'][0]["area"], 
-            "hit_per_page" => $json['events'][0]["hit_per_page"],
-            "freeword" => $json['events'][0]["freeword"], 
-            "offset" => $json['events'][0]["offset"], 
-        );
         return view('app.index');
     }
 
@@ -69,6 +55,20 @@ class AppController extends Controller
 
     public function restaurant($event_id)
     {
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=458e7c74ce130a78394c9522748bc0c4&hit_per_page=30&offset_page=10', [
+            'query' => ['event_id' => $event_id]
+        ]);
+
+        $json = json_decode($res->getBody(), true);
+
+        return array(
+            "name" => $json['events'][0]["name"], 
+            "area" => $json['events'][0]["area"], 
+            "hit_per_page" => $json['events'][0]["hit_per_page"],
+            "freeword" => $json['events'][0]["freeword"], 
+            "offset" => $json['events'][0]["offset"], 
+        );
         return view('app.restaurant');
     }
     

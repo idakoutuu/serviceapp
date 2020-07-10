@@ -13,7 +13,7 @@
     @if(!empty($users))
     @foreach ($users as $user)
     <br>
-    {{ $user->name }}
+    <a href="otheruser/{id}">{{ $user->name }}</a>
     @endforeach
     @foreach ($photograph as $photo)
     <img src="{{ asset('/storage/images/' . $photo['photo']) }}" alt="" width="150px" height="100px">
