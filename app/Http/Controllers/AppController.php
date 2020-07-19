@@ -55,26 +55,20 @@ class AppController extends Controller
 
     public function restaurant($event_id)
     {
+
+        //urlつけてみる！！！！！！！！！次回
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://api.gnavi.co.jp/RestSearchAPI/v3/', [
             'query' => [
-                'keyid' => env('GNAVI_API'),
-                'hit_per_page' => 30,
-                'offset_page' => 10,
+                'keyid' => config('app.gnavikey'),
+                'hit_per_page' => 50,
+                'offset_page' => 1,
+                'freeword' => '藤沢,肉'
             ]
         ]);
 
         $json = json_decode($res->getBody(), true);
 
-        return array(
-            "name" => $json['events'][0]["name"], 
-            "area" => $json['events'][0]["area"], 
-            "hit_per_page" => $json['events'][0]["hit_per_page"],
-            "freeword" => $json['events'][0]["freeword"], 
-            "offset" => $json['events'][0]["offset"], 
-        );
-        return view('app.restaurant');
+        return view('app.restaurant', compact('json'));
     }
-    
-
 }

@@ -2,11 +2,24 @@
 
 @section('title', '編集ページ')
 @section('content')
+
 <form action="{{ route('user.update') }}" method="post" enctype="multipart/form-data">
     @csrf
+    @if (count($errors) > 0)
+        <p style="color: red; text-align: center;">再入力してください</p>
+    @endif
     <div class="profile-group">
         <div class="profile-group__title">
-            ユーザー名：<input type="text" name="name" value="{{$auth->name}}">
+            ユーザー名：
+            @if($errors->has('name'))
+            <input id="name" type="text" class="col-md-4 form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('name') }}</strong>
+            </span>
+            @else
+            <input type="text" name="name" value="{{$auth->name}}">
+            @endif
+            
         </div>
         <div class="profile-group__title">
             性別：{{ $auth->gender }}
@@ -43,6 +56,11 @@
             プロフィール写真：
             <img src="{{ asset('/storage/images/' . $auth->photograph->photo) }}" alt="" width="150px" height="100px"><br>
             <input type="file" id="photo" name="photo">
+            @if ($errors->has('photo'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('photo') }}</strong>
+                </span>
+            @endif
         </div>
     </div>
     <input type="submit" value="確認する">

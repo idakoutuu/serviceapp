@@ -61,6 +61,11 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user, Photograph $photograph)
     {
+        //ばりデートからばりテートメソッド$this->velidator($request->all())
+        $this->validate($request,[
+            'name' => ['required', 'max:10', 'string'],
+            'photo' => ['required','file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
+            ]);
         $auth = Auth::user();
         $inputs = $request->input();
         $pref = Prefecture::find($request->prefecture_id);
@@ -69,10 +74,10 @@ class UsersController extends Controller
         $uploadedFile = $this->saveImage($request->file('photo'));
         if($request->file('photo')) {
             $files = $auth->photograph['photo'];
-            Storage::delete($files);
-            $path = $request->file('photo')->storeAs('public/images', $request->file('photo')->hashName());
+            Storage::delete('public/images/' . $files);
+            $path = $request->file('photo')->storeAs('', $request->file('photo')->hashName());
             $photograph->where('user_id', '=', $auth->id)->delete();
-            $photograph->photo = str_replace('storage', 'public', $path);
+            $photograph->photo = str_replace('public/images/', '', $path);
             $photograph->user_id = auth()->id();
             $photograph->save();
             

@@ -1,7 +1,15 @@
 @extends('layouts.helloapp')
 
-@section('title', '確認ページ')
+@section('title', '編集完了')
 @section('content')
+<style>
+    .info {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+</style>
 <form action="{{ route ('user.mypage') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="col-md-6 offset-md-3 form-group col-form-label">
@@ -46,6 +54,9 @@
         <label>プロフィール写真:</label>
         <input type="hidden" name="photo" value="{{ $uploadedFile }}" class="form-control">
         <img src="{{ url($uploadedFile) }}" alt="" width="100px" height="100px">
+    </div>
+    <div class="info">
+        <a href="{{ route('user.mypage') }}">マイページへ</a>
     </div>
 </form>
 @endsection

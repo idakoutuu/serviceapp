@@ -22,10 +22,10 @@ Route::group(['as' => 'app.'], function(){
     Route::post('contact/thanks', 'AppController@send')->name('thanks');
     
     Route::get('terms', 'AppController@terms')->name('terms');
-    Route::get('restaurant/{event_id}', 'AppController@restaurant')->name('restaurant');
+    Route::get('restaurant/{event_id}', 'AppController@restaurant')->middleware('auth')->name('restaurant');
 });
 
-//'prefix' => 'user'　
+//'prefix' => 'user'　ここ聞く
 Route::group(['as' => 'user.'],function(){
     Route::get('usertop', 'UsersController@usertop')->middleware('auth')->name('usertop');
     Route::get('mypage', 'UsersController@mypage')->middleware('auth')->name('mypage');
